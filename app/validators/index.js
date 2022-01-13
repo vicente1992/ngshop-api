@@ -7,15 +7,22 @@ const {
   validateCreateCategory,
   validateUpdateCategory,
   validateGetItem
-} = require('./category.validate')
+} = require('./category.validate');
+const {
+  validateRegister
+} = require('./auth.validate');
+const { validateCreateUser, validateUpdateUser } = require('./user.validate');
 
 
 
 module.exports = {
-  validateCreateProduct,
-  validateUpdateProduct,
-  validateGetProduct,
   validateCreateCategory,
+  validateCreateProduct,
+  validateCreateUser,
+  validateGetItem,
+  validateGetProduct,
+  validateRegister,
   validateUpdateCategory,
-  validateGetItem
+  validateUpdateProduct,
+  validateUpdateUser
 }

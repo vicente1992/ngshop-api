@@ -7,7 +7,7 @@ const dbConnect = () => {
     useUnifiedTopology: true,
   }, (err, res) => {
     if (!err) {
-      console.log('**** CONEXION EXITOSA ****')
+      console.log('**** CONEXION EXITOSA 😎 ****')
     } else {
       console.log('***** ERROR DE CONEXION ****', err)
     }
