@@ -40,7 +40,23 @@ const validateRegister = [
   }
 ]
 
+const validateLogin = [
+  check('email')
+    .exists()
+    .not()
+    .isEmpty(),
+  check('password')
+    .exists()
+    .not()
+    .isEmpty(),
+  (req, res, next) => {
+    validateResult(req, res, next)
+  }
+]
+
+
 
 module.exports = {
-  validateRegister
+  validateRegister,
+  validateLogin
 }

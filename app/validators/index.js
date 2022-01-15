@@ -9,9 +9,11 @@ const {
   validateGetItem
 } = require('./category.validate');
 const {
-  validateRegister
+  validateRegister,
+  validateLogin
 } = require('./auth.validate');
 const { validateCreateUser, validateUpdateUser } = require('./user.validate');
+const { validateCreateOrder } = require('./order.validate');
 
 
 
@@ -24,5 +26,7 @@ module.exports = {
   validateRegister,
   validateUpdateCategory,
   validateUpdateProduct,
-  validateUpdateUser
+  validateUpdateUser,
+  validateLogin,
+  validateCreateOrder,
 }

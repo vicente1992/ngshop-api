@@ -22,6 +22,7 @@ app.use(api, require('./app/routes/products'));
 app.use(api, require('./app/routes/category'));
 app.use(api, require('./app/routes/auth'));
 app.use(api, require('./app/routes/users'));
+app.use(api, require('./app/routes/orders'));
 
 dbConnect();
 

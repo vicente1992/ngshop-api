@@ -4,7 +4,8 @@ const {
   getUser,
   deleteUser,
   addUser,
-  updateUser }
+  updateUser,
+  countUsers }
   = require('../controllers/user.controller');
 const {
   validateGetItem,
@@ -22,6 +23,7 @@ router.post('/users', validateCreateUser, addUser);
 
 router.patch('/users/:id', validateUpdateUser, updateUser);
 
+router.get('/users/get/count', countUsers);
 
 router.delete('/users/:id', validateGetItem, deleteUser);
 

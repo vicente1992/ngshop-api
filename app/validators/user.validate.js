@@ -34,6 +34,8 @@ const validateCreateUser = [
     .optional(),
   check('isAdmin')
     .optional(),
+  check('role')
+    .optional(),
 
   (req, res, next) => {
     validateResult(req, res, next)
@@ -71,6 +73,8 @@ const validateUpdateUser = [
   check('country')
     .optional(),
   check('isAdmin')
+    .optional(),
+  check('role')
     .optional(),
   check('id')
     .exists()

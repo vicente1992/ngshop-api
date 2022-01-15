@@ -1,6 +1,6 @@
 const { request, response } = require('express');
 const { matchedData } = require('express-validator');
-const { httpError, encrypt } = require('../helpers');
+const { httpError, encrypt, setUserInfo } = require('../helpers');
 const userModel = require('../models/user.model');
 
 
@@ -39,7 +39,7 @@ const addUser = async (req = request, res = response) => {
     const passwordHash = await encrypt(req.password);
     req.password = passwordHash;
     const data = await userModel.create(req);
-    res.status(201).send({ data });
+    res.status(201).send({ data: await setUserInfo(data) });
   } catch (e) {
     httpError(res, e)
   }
@@ -54,7 +54,17 @@ const updateUser = async (req, res) => {
       new: true,
       runValidators: true
     })
-    res.send({ data });
+    res.send({ data: await setUserInfo(data) });
+  } catch (e) {
+    httpError(res, e)
+  }
+}
+
+const countUsers = async (req = request, res = response) => {
+  try {
+
+    const data = await userModel.find();
+    res.send({ data: data.length });
   } catch (e) {
     httpError(res, e)
   }
@@ -77,4 +87,5 @@ module.exports = {
   addUser,
   updateUser,
   deleteUser,
+  countUsers,
 }

@@ -7,6 +7,8 @@ const categoryModel = require('../models/category.model');
 const getCategories = async (req = request, res = response) => {
   try {
 
+    console.log(req.user);
+
     const data = await categoryModel.find()
     res.status(200).send({ data })
   } catch (error) {
