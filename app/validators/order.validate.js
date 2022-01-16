@@ -37,7 +37,25 @@ const validateCreateOrder = [
     .not()
     .isEmpty(),
   check('status')
-    .optional(),
+    .exists()
+    .not()
+    .isEmpty(),
+
+  (req, res, next) => {
+    validateResult(req, res, next)
+  }
+];
+
+const validateUpdateOrder = [
+  check('status')
+    .exists()
+    .not()
+    .isEmpty(),
+  check('id')
+    .exists()
+    .withMessage('MISSING')
+    .not()
+    .isEmpty(),
 
   (req, res, next) => {
     validateResult(req, res, next)
@@ -45,7 +63,7 @@ const validateCreateOrder = [
 ];
 
 
-
 module.exports = {
-  validateCreateOrder
+  validateCreateOrder,
+  validateUpdateOrder
 }

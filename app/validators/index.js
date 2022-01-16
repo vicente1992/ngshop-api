@@ -13,7 +13,7 @@ const {
   validateLogin
 } = require('./auth.validate');
 const { validateCreateUser, validateUpdateUser } = require('./user.validate');
-const { validateCreateOrder } = require('./order.validate');
+const { validateCreateOrder, validateUpdateOrder } = require('./order.validate');
 
 
 
@@ -29,4 +29,5 @@ module.exports = {
   validateUpdateUser,
   validateLogin,
   validateCreateOrder,
+  validateUpdateOrder
 }
